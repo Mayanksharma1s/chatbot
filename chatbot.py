@@ -1,6 +1,7 @@
 import character_variable, prompt_gen
 from prompt_work import response_chatbot, response_memory
 
+print('''NOVA PERSONA''')
 
 print('''Available characters:
     1. Gojo
@@ -31,309 +32,88 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 # Logic for Return Message
-# Gojo
-if choice == 1:
+
+def character_chatbot(character):
     while True:
         try:
             user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
             if user_input.lower() == "exit":
-                print("Exiting Gojo conversation.")
+                print("Exiting conversation.")
                 break
             else:
                 print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["gojo"], user_input)
+                prompt = prompt_gen.prompt_chatbot(character_variable.character_info[character], user_input)
                 response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["gojo"]["default_memory"], user_input, response)
+                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info[character]["default_memory"], user_input, response)
                 new_memory = response_memory(memory_prompt)
-                character_variable.character_info["gojo"]["default_memory"] = new_memory
-                print(f"Gojo: {response}\n")
-
+                character_variable.character_info[character]["default_memory"] = new_memory
+                print(f"{character}: {response}\n")
         except Exception as e:
             print(f"An error occurred: {e}")
+
+
+
+
+# Gojo
+if choice == 1:
+    character_chatbot("gojo")
 
 # Itachi
 elif choice == 2:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Itachi conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["itachi"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["itachi"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["itachi"]["default_memory"] = new_memory
-                print(f"Itachi: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("itachi")
 
 # Naruto
 elif choice == 3:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Naruto conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["naruto"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["naruto"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["naruto"]["default_memory"] = new_memory
-                print(f"Naruto: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("naruto")
 
 # Daniel Park
 elif choice == 4:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Daniel Park conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["daniel_park"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["daniel_park"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["daniel_park"]["default_memory"] = new_memory
-                print(f"Daniel Park: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("daniel_park")
 
 # Gun Yamazaki
 elif choice == 5:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Gun Yamazaki conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["gun_yamazaki"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["gun_yamazaki"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["gun_yamazaki"]["default_memory"] = new_memory
-                print(f"Gun Yamazaki: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("gun_yamazaki")
 
 # Vasco
 elif choice == 6:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Vasco conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["vasco"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["vasco"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["vasco"]["default_memory"] = new_memory
-                print(f"Vasco: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("vasco")
 
 # Jay
 elif choice == 7:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Jay conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["jay"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["jay"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["jay"]["default_memory"] = new_memory
-                print(f"Jay: {response}\n")
-
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("jay")
 
 # Jace
 elif choice == 8:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Jace conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["jace"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["jace"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["jace"]["default_memory"] = new_memory
-                print(f"Jace: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("jace")
 
 # Luffy
 elif choice == 9:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Luffy conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["luffy"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["luffy"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["luffy"]["default_memory"] = new_memory
-                print(f"Luffy: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("luffy")
 
 # Zoro
 elif choice == 10:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Zoro conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["zoro"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["zoro"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["zoro"]["default_memory"] = new_memory
-                print(f"Zoro: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("zoro")
 
 # Sanji
 elif choice == 11:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Sanji conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["sanji"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["sanji"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["sanji"]["default_memory"] = new_memory
-                print(f"Sanji: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("sanji")
 
 # Nami
 elif choice == 12:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Nami conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["nami"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["nami"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["nami"]["default_memory"] = new_memory
-                print(f"Nami: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("nami")
 
 # Robin
 elif choice == 13:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Robin conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["robin"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["robin"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["robin"]["default_memory"] = new_memory
-                print(f"Robin: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
-
+    character_chatbot("robin")
 # Brook
 elif choice == 14:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Brook conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["brook"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["brook"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["brook"]["default_memory"] = new_memory
-                print(f"Brook: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("brook")
 
 # Chopper
 elif choice == 15:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Chopper conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["chopper"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["chopper"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["chopper"]["default_memory"] = new_memory
-                print(f"Chopper: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("chopper")
 
 # Gold D. Roger
 else:
-    while True:
-        try:
-            user_input = input("Enter your message to the character, type `exit` to close your conversation: ")
-            if user_input.lower() == "exit":
-                print("Exiting Gold D. Roger conversation.")
-                break
-            else:
-                print("Loading.........")
-                prompt = prompt_gen.prompt_chatbot(character_variable.character_info["gold_roger"], user_input)
-                response = response_chatbot(prompt)
-                memory_prompt = prompt_gen.prompt_memory(character_variable.character_info["gold_roger"]["default_memory"], user_input, response)
-                new_memory = response_memory(memory_prompt)
-                character_variable.character_info["gold_roger"]["default_memory"] = new_memory
-                print(f"Gold D. Roger: {response}\n")
-        except Exception as e:
-            print(f"An error occurred: {e}")
+    character_chatbot("gold_d_roger")
 
